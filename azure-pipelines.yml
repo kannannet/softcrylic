@@ -27,3 +27,10 @@ stages:
         dockerfile: '**/Dockerfile'
         tags: |
           $(tag)
+          - task: ECRPushImage@1
+            inputs:
+              awsCredentials: 'testfgfg'
+              regionName: 'af-south-1'
+              imageSource: 'imagename'
+              sourceImageName: 'test'
+              repositoryName: 'test'
